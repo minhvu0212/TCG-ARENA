@@ -582,22 +582,22 @@ h1, h2, h3, h4, h5, h6 {
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .category-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(180deg, #171d2b 0%, #101217 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
-  padding: 24px 20px;
-  text-align: center;
+  padding: 0;
+  text-align: left;
   transition: all var(--transition-normal);
   cursor: pointer;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 .category-card::before {
@@ -610,13 +610,14 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
   opacity: 0;
   transition: opacity var(--transition-normal);
+  z-index: 3;
 }
 
 .category-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--primary-blue);
+  background: linear-gradient(180deg, #1c2335 0%, #12151e 100%);
+  border-color: rgba(57, 120, 255, 0.6);
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(57, 120, 255, 0.22);
 }
 
 .category-card:hover::before {
@@ -627,6 +628,86 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent-gold);
   background: rgba(232, 184, 74, 0.08);
   box-shadow: 0 8px 24px var(--accent-gold-glow);
+}
+
+/* Khung hiển thị hình ảnh danh mục thực tế chuẩn phong cách TCG Luxury */
+.category-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  background: radial-gradient(circle at 50% 50%, #1e263a 0%, #0d1017 85%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.category-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 65%, rgba(16, 18, 23, 0.95) 100%);
+  pointer-events: none;
+}
+
+.category-image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.75));
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+}
+
+.category-card:hover .category-image-wrapper img {
+  transform: scale(1.08) translateY(-4px);
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 14px rgba(57, 120, 255, 0.3));
+}
+
+.category-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  z-index: 2;
+  background: rgba(16, 17, 20, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--accent-gold-light);
+}
+
+.category-content {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text-white);
+  transition: color var(--transition-fast);
+}
+
+.category-card:hover h3 {
+  color: var(--accent-gold);
+}
+
+.category-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
 }
 
 .category-icon-wrapper {
@@ -652,17 +733,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 32px;
   height: 32px;
   color: var(--accent-gold);
-}
-
-.category-card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 6px;
-  color: var(--text-white);
-}
-
-.category-card p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -1974,9 +2044,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .category-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 600px;
     margin: 0 auto;
+  }
+
+  .category-image-wrapper {
+    height: 140px;
+    padding: 10px;
+  }
+
+  .category-content {
+    padding: 12px 14px 16px;
+  }
+
+  .category-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .category-card p {
+    font-size: 0.78rem;
   }
 
   .trust-grid {
@@ -2024,5 +2112,18 @@ h1, h2, h3, h4, h5, h6 {
   .modal-qty-selector {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .category-image-wrapper {
+    height: 150px;
   }
 }
