@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 450" width="1400" height="450">
+  <defs>
+    <linearGradient id="pkmnBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14101A"/>
+      <stop offset="50%" stop-color="#1C1826"/>
+      <stop offset="100%" stop-color="#2D1525"/>
+    </linearGradient>
+    <radialGradient id="pkmnFire" cx="80%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FF5A36" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#E8B84A" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#1C1826" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="450" rx="16" fill="url(#pkmnBg)"/>
+  <rect width="1400" height="450" rx="16" fill="url(#pkmnFire)"/>
+  
+  <!-- Graphic elements -->
+  <g transform="translate(950, 60)" opacity="0.85">
+    <circle cx="180" cy="160" r="140" fill="none" stroke="#FF5A36" stroke-width="4" stroke-dasharray="10 6" opacity="0.6"/>
+    <!-- Pokéball shape -->
+    <path d="M 60 160 A 120 120 0 0 1 300 160 Z" fill="#E62828" opacity="0.8"/>
+    <path d="M 60 160 A 120 120 0 0 0 300 160 Z" fill="#FFFFFF" opacity="0.9"/>
+    <line x1="60" y1="160" x2="300" y2="160" stroke="#101114" stroke-width="12"/>
+    <circle cx="180" cy="160" r="36" fill="#101114"/>
+    <circle cx="180" cy="160" r="24" fill="#FFFFFF"/>
+    <circle cx="180" cy="160" r="16" fill="none" stroke="#101114" stroke-width="3"/>
+  </g>
+
+  <!-- Left Content Info -->
+  <text x="70" y="110" font-family="'Montserrat', sans-serif" font-weight="900" font-size="14" letter-spacing="4" fill="#E8B84A">OFFICIAL CARD GAME • EXPANSIONS 2024</text>
+  <text x="70" y="180" font-family="'Montserrat', sans-serif" font-weight="900" font-size="52" fill="#FFFFFF">POKÉMON <tspan fill="#FF5A36">TCG</tspan></text>
+  <text x="70" y="235" font-family="'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="20" fill="#C5CEE0">Khám phá Scarlet &amp; Violet 151, Surging Sparks, Crown Zenith...</text>
+  <text x="70" y="275" font-family="'Segoe UI', Roboto, sans-serif" font-weight="400" font-size="16" fill="#8E9CB2">✓ Booster Box nguyên seal Nhật &amp; Anh  |  ✓ Thẻ lẻ tuyển chọn Near Mint  |  ✓ Elite Trainer Box</text>
+  
+  <rect x="70" y="320" width="190" height="48" rx="8" fill="#FF5A36"/>
+  <text x="165" y="351" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" fill="#FFFFFF" text-anchor="middle">XEM TẤT CẢ POKÉMON</text>
+</svg>

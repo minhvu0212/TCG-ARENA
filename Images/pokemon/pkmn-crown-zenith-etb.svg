@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="boxGrad_crownzenithetb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#172B4D"/>
+      <stop offset="60%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#3978FF"/>
+    </linearGradient>
+    <linearGradient id="topFlap_crownzenithetb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3978FF"/>
+      <stop offset="100%" stop-color="#172B4D"/>
+    </linearGradient>
+    <filter id="boxShadow_crownzenithetb" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <circle cx="250" cy="250" r="180" fill="#3978FF" opacity="0.15"/>
+  <g filter="url(#boxShadow_crownzenithetb)" transform="translate(60, 50)">
+    <rect x="20" y="90" width="340" height="290" rx="12" fill="url(#boxGrad_crownzenithetb)" stroke="#3978FF" stroke-width="2.5"/>
+    <polygon points="20,90 90,30 430,30 360,90" fill="url(#topFlap_crownzenithetb)" stroke="#3978FF" stroke-width="2" opacity="0.85"/>
+    <polygon points="360,90 430,30 430,320 360,380" fill="#0C0E16" stroke="#3978FF" stroke-width="2" opacity="0.95"/>
+    <rect x="40" y="110" width="300" height="160" rx="8" fill="#0D101A" stroke="#2B3650" stroke-width="1.5"/>
+    <circle cx="190" cy="190" r="60" fill="#3978FF" opacity="0.2"/>
+    <polygon points="190,140 230,210 150,210" fill="#3978FF"/><circle cx="190" cy="190" r="16" fill="#FFE79A"/>
+    <text x="190" y="300" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" text-anchor="middle">CROWN ZENITH</text>
+    <text x="190" y="325" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#3978FF" text-anchor="middle">ELITE TRAINER BOX (LUCARIO)</text>
+    <text x="190" y="355" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#FFE79A" text-anchor="middle">FACTORY SEALED • 10 PACKS + PROMO LUCARIO VSTAR</text>
+    <rect x="250" y="80" width="100" height="26" rx="5" fill="#E8B84A"/>
+    <text x="300" y="98" font-family="'Montserrat', sans-serif" font-weight="900" font-size="11" fill="#101114" text-anchor="middle">ORIGINAL</text>
+  </g>
+</svg>

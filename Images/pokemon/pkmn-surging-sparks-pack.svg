@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <linearGradient id="packGrad_surgingsparkspack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2952"/>
+      <stop offset="50%" stop-color="#151928"/>
+      <stop offset="100%" stop-color="#3978FF"/>
+    </linearGradient>
+    <linearGradient id="foilSheen_surgingsparkspack" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.05)"/>
+      <stop offset="45%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="55%" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="65%" stop-color="rgba(255,255,255,0.1)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="300" r="160" fill="#3978FF" opacity="0.15"/>
+  <g transform="translate(60, 40)">
+    <path d="M 0,25 L 10,0 L 20,25 L 30,0 L 40,25 L 50,0 L 60,25 L 70,0 L 80,25 L 90,0 L 100,25 L 110,0 L 120,25 L 130,0 L 140,25 L 150,0 L 160,25 L 170,0 L 180,25 L 190,0 L 200,25 L 210,0 L 220,25 L 230,0 L 240,25 L 250,0 L 260,25 L 270,0 L 280,25" stroke="#3978FF" stroke-width="2.5" fill="#1C2337"/>
+    <rect x="0" y="25" width="280" height="470" rx="8" fill="url(#packGrad_surgingsparkspack)" stroke="#3978FF" stroke-width="2.5"/>
+    <rect x="20" y="80" width="240" height="250" rx="10" fill="#0C0E17" stroke="#2E3A52" stroke-width="2"/>
+    <g transform="translate(140, 205)">
+      <polygon points="0,-40 25,10 40,5 10,40 -15,10 -35,20" fill="#E8B84A"/>
+    </g>
+    <text x="140" y="62" font-family="'Montserrat', sans-serif" font-weight="900" font-size="16" fill="#FFFFFF" text-anchor="middle">SURGING SPARKS</text>
+    <text x="140" y="375" font-family="'Montserrat', sans-serif" font-weight="900" font-size="15" fill="#3978FF" text-anchor="middle">TERASTAL PIKACHU</text>
+    <text x="140" y="405" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="12" fill="#E2E8F0" text-anchor="middle">10 ADDITIONAL GAME CARDS</text>
+    <text x="140" y="430" font-family="'Segoe UI', sans-serif" font-size="10" fill="#7586A5" text-anchor="middle">OFFICIAL TRADING CARD GAME</text>
+    <path d="M 0,495 L 10,520 L 20,495 L 30,520 L 40,495 L 50,520 L 60,495 L 70,520 L 80,495 L 90,520 L 100,495 L 110,520 L 120,495 L 130,520 L 140,495 L 150,520 L 160,495 L 170,520 L 180,495 L 190,520 L 200,495 L 210,520 L 220,495 L 230,520 L 240,495 L 250,520 L 260,495 L 270,520 L 280,495" stroke="#3978FF" stroke-width="2.5" fill="#1C2337"/>
+    <rect x="0" y="25" width="280" height="470" rx="8" fill="url(#foilSheen_surgingsparkspack)" pointer-events="none"/>
+  </g>
+</svg>

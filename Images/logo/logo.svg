@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE79A"/>
+      <stop offset="50%" stop-color="#E8B84A"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#70A6FF"/>
+      <stop offset="50%" stop-color="#3978FF"/>
+      <stop offset="100%" stop-color="#1B44B8"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Card Emblem Left -->
+  <g transform="translate(15, 10)">
+    <!-- Back card tilted -->
+    <rect x="0" y="8" width="38" height="52" rx="4" fill="#171C2B" stroke="#E8B84A" stroke-width="2" transform="rotate(-15 19 34)"/>
+    <!-- Front card -->
+    <rect x="14" y="6" width="38" height="52" rx="4" fill="url(#blueGrad)" stroke="#FFE79A" stroke-width="2.5" transform="rotate(8 33 32)" filter="url(#glow)"/>
+    <!-- Card Emblem Center Symbol -->
+    <polygon points="33,18 41,32 33,46 25,32" fill="url(#goldGrad)" transform="rotate(8 33 32)"/>
+    <circle cx="33" cy="32" r="3" fill="#FFFFFF" transform="rotate(8 33 32)"/>
+  </g>
+  <!-- Typography -->
+  <text x="82" y="44" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="32" letter-spacing="1.5" fill="#FFFFFF">TCG <tspan fill="url(#goldGrad)">ARENA</tspan></text>
+  <text x="84" y="63" font-family="'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="9" letter-spacing="3" fill="#70A6FF">TRADING CARD GAME STORE</text>
+  <!-- Sparkles -->
+  <polygon points="295,20 297,25 302,27 297,29 295,34 293,29 288,27 293,25" fill="#FFE79A" filter="url(#glow)"/>
+  <polygon points="75,15 76,18 79,19 76,20 75,23 74,20 71,19 74,18" fill="#3978FF"/>
+</svg>

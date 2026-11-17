@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+  <defs>
+    <linearGradient id="cardGrad_slifergod" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#420B0B"/>
+      <stop offset="50%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#FF3838"/>
+    </linearGradient>
+    <linearGradient id="holoShine_slifergod" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="40%" stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="50%" stop-color="rgba(255,235,150,0.3)"/>
+      <stop offset="60%" stop-color="rgba(100,200,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <radialGradient id="artGlow_slifergod" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF3838" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0E121E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow_slifergod">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect x="25" y="25" width="450" height="650" rx="24" fill="#0C0E14" stroke="#FF3838" stroke-width="4"/>
+  <rect x="42" y="42" width="416" height="616" rx="16" fill="url(#cardGrad_slifergod)" stroke="#FFE79A" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="54" y="56" width="392" height="48" rx="8" fill="#121622" stroke="#FF3838" stroke-width="1.5"/>
+  <text x="70" y="87" font-family="'Montserrat', sans-serif" font-weight="900" font-size="20" fill="#FFFFFF">Slifer the Sky Dragon</text>
+  <text x="430" y="87" font-family="'Montserrat', sans-serif" font-weight="900" font-size="20" fill="#FF3838" text-anchor="end">★ ★ ★ ★ ★ ★ ★ ★ ★ ★</text>
+  <rect x="54" y="114" width="392" height="280" rx="10" fill="#0A0C12" stroke="#FF3838" stroke-width="2"/>
+  <rect x="54" y="114" width="392" height="280" rx="10" fill="url(#artGlow_slifergod)"/>
+  <g transform="translate(250, 254)" filter="url(#glow_slifergod)">
+    
+    <circle cx="0" cy="0" r="70" fill="#FF3838" opacity="0.3"/>
+    <path d="M -60 40 Q -40 -60 0 -40 Q 40 -20 60 -50" stroke="#C0392B" stroke-width="12" fill="none"/>
+    <circle cx="0" cy="-40" r="22" fill="#E74C3C"/>
+    <polygon points="0,-55 18,-35 -18,-35" fill="#FFEAA7"/>
+    <polygon points="0,-25 14,-10 -14,-10" fill="#FFEAA7"/>
+    <text x="0" y="55" font-family="'Montserrat', sans-serif" font-weight="900" font-size="14" fill="#FFE79A" text-anchor="middle">SLIFER THE GOD</text>
+  
+  </g>
+  <rect x="54" y="406" width="392" height="180" rx="8" fill="#101420" stroke="#253046" stroke-width="1.5"/>
+  <text x="70" y="438" font-family="'Montserrat', sans-serif" font-weight="800" font-size="15" fill="#FF3838">[Divine-Beast / Effect]</text>
+  <text x="70" y="464" font-family="'Segoe UI', sans-serif" font-size="13" fill="#B0BDD4">Yêu cầu 3 vật hiến tế để triệu hồi Thần Osiris. ATK/DEF = 1000 x số bài trên tay.</text>
+  <line x1="70" y1="482" x2="430" y2="482" stroke="#232C40" stroke-width="1"/>
+  <text x="70" y="512" font-family="'Montserrat', sans-serif" font-weight="800" font-size="15" fill="#FFFFFF">Thunderforce Attack</text>
+  <text x="430" y="512" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFE79A" text-anchor="end">ATK X000 / DEF X000</text>
+  <text x="70" y="538" font-family="'Segoe UI', sans-serif" font-size="13" fill="#B0BDD4">Bất kỳ quái thú nào đối phương triệu hồi ở thế công đều bị giảm 2000 ATK.</text>
+  <g transform="translate(54, 600)">
+    <text x="16" y="24" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#7586A5">TN19-EN001 PRISMATIC</text>
+    <text x="16" y="40" font-family="'Segoe UI', sans-serif" font-size="10" fill="#586782">YU-GI-OH! TCG • EGYPTIAN GOD CARD</text>
+    <rect x="270" y="10" width="110" height="28" rx="6" fill="#1D2436" stroke="#FF3838" stroke-width="1.5"/>
+    <text x="325" y="29" font-family="'Montserrat', sans-serif" font-weight="900" font-size="11" fill="#FFE79A" text-anchor="middle">GOD CARD</text>
+  </g>
+  <rect x="42" y="42" width="416" height="616" rx="16" fill="url(#holoShine_slifergod)" pointer-events="none"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 240" width="1400" height="240">
+  <defs>
+    <linearGradient id="promoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F2840"/>
+      <stop offset="50%" stop-color="#141A2B"/>
+      <stop offset="100%" stop-color="#261A14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="240" rx="16" fill="url(#promoGrad)" stroke="#E8B84A" stroke-width="2"/>
+  <circle cx="1250" cy="120" r="100" fill="#E8B84A" opacity="0.12"/>
+  <circle cx="150" cy="120" r="90" fill="#3978FF" opacity="0.12"/>
+  
+  <text x="700" y="70" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#E8B84A" text-anchor="middle">SIÊU ƯU ĐÃI THÀNH VIÊN TCG ARENA</text>
+  <text x="700" y="115" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="18" fill="#FFFFFF" text-anchor="middle">MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC CHO ĐƠN TỪ 1.000.000₫</text>
+  <text x="700" y="150" font-family="'Segoe UI', sans-serif" font-weight="400" font-size="15" fill="#A0AEC0" text-anchor="middle">Tặng kèm 10 Perfect Fit Sleeves cao cấp cho mỗi đơn hàng có thẻ lẻ Single Cards</text>
+  
+  <rect x="580" y="175" width="240" height="42" rx="21" fill="#3978FF"/>
+  <text x="700" y="201" font-family="'Montserrat', sans-serif" font-weight="800" font-size="13" fill="#FFFFFF" text-anchor="middle">NHẬN ƯU ĐÃI NGAY</text>
+</svg>
