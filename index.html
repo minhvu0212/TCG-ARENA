@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>TCG ARENA – Website Bán Thẻ Bài Pokémon & Yu-Gi-Oh! Chính Hãng 100%</title>
+  
+  <meta name="description" content="TCG ARENA - Thiên đường thẻ bài Pokémon TCG & Yu-Gi-Oh! TCG chính hãng tại Việt Nam. Phân phối Booster Box, Booster Pack, Elite Trainer Box, Structure Deck, thẻ lẻ Single Cards và phụ kiện bảo vệ bài chuyên nghiệp.">
+  <meta name="keywords" content="TCG Arena, Pokémon TCG, Yu-Gi-Oh, Booster Box, Booster Pack, ETB, Single Cards, Dragon Shield, thẻ bài chính hãng">
+  <meta name="author" content="TCG ARENA Team">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TCG ARENA – Website Bán Thẻ Bài Pokémon & Yu-Gi-Oh!">
+  <meta property="og:description" content="Collect. Trade. Battle. Khám phá các siêu phẩm thẻ bài và mở rộng bộ sưu tập của bạn tại TCG ARENA.">
+  <meta property="og:image" content="Images/banners/hero-banner.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="Images/logo/favicon.svg">
+
+  <!-- Google Fonts: Montserrat (tiêu đề mạnh mẽ) & Segoe UI / Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS thuần -->
+  <link rel="stylesheet" href="Styles/style.css">
+
+  <!-- JS thuần (defer để tải sau khi cây DOM sẵn sàng) -->
+  <script src="Scripts/script.js" defer></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. HEADER (CỐ ĐỊNH KHI CUỘN TRANG)
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Logo TCG ARENA -->
+      <a href="index.html" class="header-logo" title="TCG ARENA - Trang Chủ">
+        <img src="Images/logo/logo.svg" alt="TCG ARENA Logo">
+      </a>
+
+      <!-- Menu Điều Hướng (Navigation Links) -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#heroSection" class="nav-link active">Home</a>
+        <a href="#pokemonSection" class="nav-link">Pokémon TCG</a>
+        <a href="#yugiohSection" class="nav-link">Yu-Gi-Oh! TCG</a>
+        <a href="#filterSection" class="nav-link" onclick="selectQuickCategory('all', 'booster-box')">Booster Boxes</a>
+        <a href="#filterSection" class="nav-link" onclick="selectQuickCategory('all', 'single')">Single Cards</a>
+        <a href="#accessoriesSection" class="nav-link">Accessories</a>
+      </nav>
+
+      <!-- Các Nút Hành Động Header -->
+      <div class="header-actions">
+        <!-- Nút Tìm Kiếm Nhanh -->
+        <button class="search-toggle-btn" id="searchToggleBtn" title="Tìm kiếm thẻ bài">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </button>
+
+        <!-- Nút Bật/Tắt Âm Thanh Hiệu Ứng -->
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh TCG" style="color: var(--accent-gold);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
+
+        <!-- Nút Giỏ Hàng với Badge Đếm Số Lượng -->
+        <button class="cart-toggle-btn" id="cartToggleBtn" title="Xem giỏ hàng">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Nút Hamburger Menu Mobile -->
+        <button class="mobile-toggle-btn" id="mobileMenuToggle" title="Mở bảng chọn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="12" x2="20" y2="12"/>
+            <line x1="4" y1="6" x2="20" y2="6"/>
+            <line x1="4" y1="18" x2="20" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Hộp Tìm Kiếm Nhanh Thả Xuống (Quick Search Dropdown) -->
+    <div class="header-search-box" id="headerSearchBox">
+      <div class="search-input-wrapper">
+        <input type="text" id="headerSearchInput" class="searchInput" placeholder="Nhập tên lá bài, hộp booster (ví dụ: Charizard, Blue-Eyes, 151, Fire Kings...)..." autocomplete="off">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO BANNER
+       ======================================================================== -->
+  <section class="hero-section" id="heroSection">
+    <img src="Images/banners/hero-banner.svg" alt="TCG Arena Hero Battle Arena" class="hero-backdrop">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>100% Authentic Pokémon &amp; Yu-Gi-Oh! Store</span>
+      </div>
+
+      <h1 class="hero-title">
+        ENTER THE WORLD OF <span class="highlight-blue">TCG</span> <span class="highlight-gold">ARENA</span>
+      </h1>
+
+      <div class="hero-slogan">
+        Collect. Trade. Battle.
+      </div>
+
+      <p class="hero-desc">
+        Discover your next favorite cards and expand your collection. Thiên đường thẻ bài chính hãng với đầy đủ Booster Box nguyên seal, thẻ lẻ tuyển chọn Near Mint và phụ kiện thi đấu quốc tế.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#pokemonSection" class="btn btn-pkmn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+          Explore Pokémon
+        </a>
+        <a href="#yugiohSection" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 22 19 2 19"/>
+            <circle cx="12" cy="13" r="2"/>
+          </svg>
+          Explore Yu-Gi-Oh!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CAM KẾT DỊCH VỤ (TRUST STRIP)
+       ======================================================================== -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <img src="Images/icons/shield.svg" alt="Shield Icon">
+        </div>
+        <div class="trust-text">
+          <h4>100% Chính Hãng</h4>
+          <p>Cam kết thẻ bài và hộp seal nguyên bản từ nhà sản xuất</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <img src="Images/icons/truck.svg" alt="Truck Icon">
+        </div>
+        <div class="trust-text">
+          <h4>Giao Hàng An Toàn</h4>
+          <p>Đóng gói bóng khí chống va đập, cong gãy góc thẻ 100%</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <img src="Images/icons/exchange.svg" alt="Exchange Icon">
+        </div>
+        <div class="trust-text">
+          <h4>Đổi Trả Dễ Dàng</h4>
+          <p>Được kiểm tra thẻ bài trước khi nhận, hỗ trợ 7 ngày</p>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">
+          <img src="Images/icons/support.svg" alt="Support Icon">
+        </div>
+        <div class="trust-text">
+          <h4>Tư Vấn Chuyên Sâu</h4>
+          <p>Hỗ trợ build bộ bài thi đấu Meta từ các Duelist chuyên nghiệp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ========================================================================
+         3. DANH MỤC SẢN PHẨM (CATEGORY SECTION)
+         ======================================================================== -->
+    <section class="categories-section" id="categoriesSection">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-subtitle">DANH MỤC THẺ BÀI</span>
+          <h2 class="section-title">KHÁM PHÁ THEO THỂ LOẠI</h2>
+          <p class="section-desc">Chọn ngay danh mục bạn quan tâm để khám phá hàng ngàn lá bài và phụ kiện hấp dẫn</p>
+        </div>
+
+        <div class="category-grid">
+          <!-- 1. Pokémon Booster Box -->
+          <div class="category-card" onclick="selectQuickCategory('pokemon', 'booster-box')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/box.svg" alt="Pokémon Booster Box">
+            </div>
+            <h3>Pokémon Booster Box</h3>
+            <p>Hộp 36 gói nguyên seal Nhật &amp; Anh</p>
+          </div>
+
+          <!-- 2. Pokémon Booster Pack -->
+          <div class="category-card" onclick="selectQuickCategory('pokemon', 'booster-pack')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/pack.svg" alt="Pokémon Booster Pack">
+            </div>
+            <h3>Pokémon Booster Pack</h3>
+            <p>Gói lẻ bốc thẻ hiếm SIR, SAR</p>
+          </div>
+
+          <!-- 3. Pokémon Single Cards -->
+          <div class="category-card" onclick="selectQuickCategory('pokemon', 'single')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/single.svg" alt="Pokémon Single Cards">
+            </div>
+            <h3>Pokémon Single Cards</h3>
+            <p>Thẻ lẻ tuyển chọn Near Mint / PSA Ready</p>
+          </div>
+
+          <!-- 4. Pokémon ETB -->
+          <div class="category-card" onclick="selectQuickCategory('pokemon', 'etb')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/box.svg" alt="Pokémon ETB">
+            </div>
+            <h3>Pokémon ETB</h3>
+            <p>Elite Trainer Box kèm bọc bài &amp; promo</p>
+          </div>
+
+          <!-- 5. Yu-Gi-Oh! Booster Box -->
+          <div class="category-card" onclick="selectQuickCategory('yugioh', 'booster-box')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/box.svg" alt="Yu-Gi-Oh! Booster Box">
+            </div>
+            <h3>Yu-Gi-Oh! Booster Box</h3>
+            <p>Hộp bài Konami 24 gói All-Foil &amp; Core Set</p>
+          </div>
+
+          <!-- 6. Yu-Gi-Oh! Structure Deck -->
+          <div class="category-card" onclick="selectQuickCategory('yugioh', 'structure-deck')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/deck.svg" alt="Yu-Gi-Oh! Structure Deck">
+            </div>
+            <h3>Yu-Gi-Oh! Structure Deck</h3>
+            <p>Bộ bài hoàn chỉnh sẵn sàng chiến đấu giải</p>
+          </div>
+
+          <!-- 7. Yu-Gi-Oh! Single Cards -->
+          <div class="category-card" onclick="selectQuickCategory('yugioh', 'single')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/single.svg" alt="Yu-Gi-Oh! Single Cards">
+            </div>
+            <h3>Yu-Gi-Oh! Single Cards</h3>
+            <p>Quarter Century Secret Rare, Starlight Rare</p>
+          </div>
+
+          <!-- 8. Accessories -->
+          <div class="category-card" onclick="selectQuickCategory('accessories', 'accessories')">
+            <div class="category-icon-wrapper">
+              <img src="Images/icons/accessory.svg" alt="Accessories">
+            </div>
+            <h3>TCG Accessories</h3>
+            <p>Bọc Dragon Shield, Deck Box, Toploader, Thảm</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         9. BỘ LỌC & TÌM KIẾM SẢN PHẨM (SEARCH & FILTER TOOLBAR)
+         ======================================================================== -->
+    <section class="filter-toolbar-section" id="filterSection">
+      <div class="container">
+        <div class="filter-toolbar-card">
+          
+          <div class="filter-row-top">
+            <!-- Ô nhập tìm kiếm -->
+            <div class="search-input-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+              <input type="text" id="mainSearchInput" class="searchInput" placeholder="Tìm theo tên thẻ, bộ mở rộng (Charizard, Blue-Eyes, 151, Fire Kings...)...">
+            </div>
+
+            <!-- Các Dropdown Lọc nâng cao -->
+            <div class="filter-controls-group">
+              <!-- Lọc theo Tựa Game -->
+              <select id="filterGame" class="custom-select" title="Lọc theo Tựa Game">
+                <option value="all">Tất cả trò chơi</option>
+                <option value="pokemon">Pokémon TCG</option>
+                <option value="yugioh">Yu-Gi-Oh! TCG</option>
+                <option value="accessories">Phụ kiện TCG</option>
+              </select>
+
+              <!-- Lọc theo Thể Loại Sản Phẩm -->
+              <select id="filterCategory" class="custom-select" title="Lọc theo Thể Loại">
+                <option value="all">Tất cả thể loại</option>
+                <option value="booster-box">Booster Box</option>
+                <option value="booster-pack">Booster Pack</option>
+                <option value="single">Single Cards (Thẻ lẻ)</option>
+                <option value="etb">Elite Trainer Box (ETB)</option>
+                <option value="structure-deck">Structure Deck</option>
+                <option value="collection">Collection Boxes</option>
+                <option value="accessories">Phụ kiện (Sleeves, Box...)</option>
+              </select>
+
+              <!-- Lọc theo Mức Giá -->
+              <select id="filterPrice" class="custom-select" title="Lọc theo Mức Giá">
+                <option value="all">Tất cả mức giá</option>
+                <option value="under-500">Dưới 500.000₫</option>
+                <option value="500-1500">500.000₫ - 1.500.000₫</option>
+                <option value="1500-3000">1.500.000₫ - 3.000.000₫</option>
+                <option value="above-3000">Trên 3.000.000₫</option>
+              </select>
+
+              <!-- Lọc theo Tình Trạng Hàng -->
+              <select id="filterStock" class="custom-select" title="Tình trạng hàng">
+                <option value="all">Tất cả tình trạng</option>
+                <option value="in-stock">Còn hàng</option>
+                <option value="low-stock">Sắp hết hàng / Hàng hiếm</option>
+              </select>
+
+              <!-- Sắp xếp -->
+              <select id="filterSort" class="custom-select" title="Sắp xếp theo">
+                <option value="default">Sắp xếp: Mặc định</option>
+                <option value="price-asc">Giá: Thấp đến Cao</option>
+                <option value="price-desc">Giá: Cao đến Thấp</option>
+                <option value="name-asc">Tên: A đến Z</option>
+                <option value="rating">Được đánh giá cao</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dãy Filter Pills chọn nhanh -->
+          <div class="filter-pills-row">
+            <button class="filter-pill active" data-filter-category="all">Tất cả</button>
+            <button class="filter-pill" data-filter-category="booster-box">Booster Box</button>
+            <button class="filter-pill" data-filter-category="booster-pack">Booster Pack</button>
+            <button class="filter-pill" data-filter-category="single">Single Cards</button>
+            <button class="filter-pill" data-filter-category="etb">Elite Trainer Box</button>
+            <button class="filter-pill" data-filter-category="structure-deck">Structure Deck</button>
+            <button class="filter-pill" data-filter-category="accessories">Phụ Kiện</button>
+
+            <span class="filter-results-count" id="filterResultsCount">Đang tải sản phẩm...</span>
+            <button class="btn btn-outline btn-sm" onclick="resetFilters()" style="margin-left: 10px;">Đặt lại</button>
+          </div>
+
+        </div>
+
+        <!-- Khung hiển thị danh sách sản phẩm theo kết quả lọc -->
+        <div class="products-grid" id="filterResultsGrid" style="margin-top: 30px;">
+          <!-- Được render tự động bằng script.js -->
+        </div>
+
+        <!-- Trạng thái trống khi không tìm thấy kết quả -->
+        <div id="filterEmptyState" class="empty-cart-state" style="display: none; margin-top: 40px;">
+          <svg class="empty-cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <h4>Không tìm thấy sản phẩm phù hợp</h4>
+          <p>Rất tiếc, không có sản phẩm nào khớp với từ khóa hoặc bộ lọc của bạn. Hãy thử thay đổi tiêu chí lọc hoặc tìm từ khóa khác.</p>
+          <button class="btn btn-primary btn-sm" onclick="resetFilters()">Xem tất cả sản phẩm</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. FEATURED PRODUCTS (SẢN PHẨM NỔI BẬT - TỐI THIỂU 8 SẢN PHẨM)
+         ======================================================================== -->
+    <section class="showcase-section" id="featuredSection">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-subtitle">SƯU TẦM ĐẲNG CẤP</span>
+          <h2 class="section-title">SẢN PHẨM NỔI BẬT (FEATURED)</h2>
+          <p class="section-desc">Tuyển tập những siêu phẩm Booster Box, Elite Trainer Box và thẻ bài chén thánh được săn lùng nhiều nhất tại TCG ARENA.</p>
+        </div>
+
+        <div class="products-grid" id="featuredProductsGrid">
+          <!-- Được render tự động qua JS với tối thiểu 8 sản phẩm -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. POKÉMON TCG SECTION (KHU VỰC RIÊNG BIỆT POKÉMON - TỐI THIỂU 12 SẢN PHẨM)
+         ======================================================================== -->
+    <section class="showcase-section" id="pokemonSection">
+      <div class="container">
+        
+        <!-- Pokémon Banner -->
+        <div class="showcase-banner-card">
+          <img src="Images/banners/pokemon-banner.svg" alt="Pokémon TCG Official Banner">
+        </div>
+
+        <div class="section-header">
+          <span class="section-subtitle" style="color: var(--pkmn-red);">POKÉMON TRADING CARD GAME</span>
+          <h2 class="section-title">KHU VỰC THẺ BÀI POKÉMON</h2>
+          <p class="section-desc">Khám phá vũ trụ thẻ bài Pokémon phong phú từ Nhật Bản và Quốc tế: 151, Crown Zenith, Surging Sparks, Evolving Skies, Paldean Fates...</p>
+        </div>
+
+        <!-- Bộ lọc phụ riêng cho Pokémon -->
+        <div class="showcase-subnav">
+          <button class="showcase-subnav-btn pkmn-subnav-btn active" data-pkmn-category="all">Tất cả Pokémon</button>
+          <button class="showcase-subnav-btn pkmn-subnav-btn" data-pkmn-category="booster-box">Booster Box</button>
+          <button class="showcase-subnav-btn pkmn-subnav-btn" data-pkmn-category="booster-pack">Booster Pack</button>
+          <button class="showcase-subnav-btn pkmn-subnav-btn" data-pkmn-category="etb">Elite Trainer Box</button>
+          <button class="showcase-subnav-btn pkmn-subnav-btn" data-pkmn-category="single">Single Cards</button>
+          <button class="showcase-subnav-btn pkmn-subnav-btn" data-pkmn-category="collection">Collection Boxes</button>
+        </div>
+
+        <!-- Lưới sản phẩm Pokémon (14 sản phẩm) -->
+        <div class="products-grid" id="pokemonProductsGrid">
+          <!-- Render tự động qua JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. YU-GI-OH! TCG SECTION (KHU VỰC RIÊNG BIỆT YU-GI-OH! - TỐI THIỂU 12 SẢN PHẨM)
+         ======================================================================== -->
+    <section class="showcase-section" id="yugiohSection">
+      <div class="container">
+        
+        <!-- Yu-Gi-Oh! Banner -->
+        <div class="showcase-banner-card">
+          <img src="Images/banners/yugioh-banner.svg" alt="Yu-Gi-Oh! TCG Official Banner">
+        </div>
+
+        <div class="section-header">
+          <span class="section-subtitle" style="color: var(--primary-blue-light);">KONAMI OFFICIAL CARD GAME</span>
+          <h2 class="section-title">KHU VỰC THẺ BÀI YU-GI-OH!</h2>
+          <p class="section-desc">Bước vào đấu trường Vua Trò Chơi với các bộ mở rộng kỷ niệm 25 năm, Structure Deck chuẩn giải và các thẻ bài Quarter Century Secret Rare huyền thoại.</p>
+        </div>
+
+        <!-- Bộ lọc phụ riêng cho Yu-Gi-Oh! -->
+        <div class="showcase-subnav">
+          <button class="showcase-subnav-btn ygo-subnav-btn active" data-ygo-category="all">Tất cả Yu-Gi-Oh!</button>
+          <button class="showcase-subnav-btn ygo-subnav-btn" data-ygo-category="booster-box">Booster Box</button>
+          <button class="showcase-subnav-btn ygo-subnav-btn" data-ygo-category="booster-pack">Booster Pack</button>
+          <button class="showcase-subnav-btn ygo-subnav-btn" data-ygo-category="structure-deck">Structure Deck</button>
+          <button class="showcase-subnav-btn ygo-subnav-btn" data-ygo-category="single">Single Cards (QCR)</button>
+          <button class="showcase-subnav-btn ygo-subnav-btn" data-ygo-category="collection">Mega-Tins &amp; Special</button>
+        </div>
+
+        <!-- Lưới sản phẩm Yu-Gi-Oh! (14 sản phẩm) -->
+        <div class="products-grid" id="yugiohProductsGrid">
+          <!-- Render tự động qua JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         KHU VỰC PHỤ KIỆN BẢO VỆ THẺ BÀI (TCG ACCESSORIES)
+         ======================================================================== -->
+    <section class="showcase-section" id="accessoriesSection">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-subtitle">PHỤ KIỆN BẢO VỆ CHUYÊN NGHIỆP</span>
+          <h2 class="section-title">TCG ACCESSORIES &amp; GEAR</h2>
+          <p class="section-desc">Bảo vệ tối đa giá trị của từng lá bài với phụ kiện cao cấp chuẩn giải đấu từ Dragon Shield, Ultimate Guard và Ultra Pro.</p>
+        </div>
+
+        <div class="products-grid" id="accessoriesProductsGrid">
+          <!-- Render tự động qua JS (6 sản phẩm phụ kiện) -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BANNER ƯU ĐÃI THÀNH VIÊN (PROMO STRIP)
+         ======================================================================== -->
+    <section class="promo-strip-section">
+      <div class="container">
+        <div class="promo-banner-container">
+          <img src="Images/banners/promo-banner.svg" alt="Khuyến mãi TCG Arena">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       10. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Cột 1: Thông tin thương hiệu TCG ARENA -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="Images/logo/logo.svg" alt="TCG ARENA Logo">
+          </a>
+          <p>
+            TCG ARENA là hệ thống bán lẻ thẻ bài Pokémon &amp; Yu-Gi-Oh! uy tín hàng đầu tại Việt Nam. Chúng tôi cam kết 100% sản phẩm thẻ bài nguyên seal chính hãng, phục vụ đam mê sưu tầm và thi đấu của cộng đồng bài thủ.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook">FB</a>
+            <a href="#" class="social-link" title="YouTube">YT</a>
+            <a href="#" class="social-link" title="Discord">DC</a>
+            <a href="#" class="social-link" title="TikTok">TT</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Danh mục nhanh -->
+        <div class="footer-column">
+          <h3>DANH MỤC THẺ BÀI</h3>
+          <ul class="footer-links">
+            <li><a href="#pokemonSection">Pokémon Booster Box</a></li>
+            <li><a href="#pokemonSection">Pokémon Elite Trainer Box</a></li>
+            <li><a href="#pokemonSection">Pokémon Single Cards</a></li>
+            <li><a href="#yugiohSection">Yu-Gi-Oh! Booster Box</a></li>
+            <li><a href="#yugiohSection">Yu-Gi-Oh! Structure Deck</a></li>
+            <li><a href="#accessoriesSection">Phụ Kiện Dragon Shield</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 3: Chính sách khách hàng -->
+        <div class="footer-column">
+          <h3>CHÍNH SÁCH BÁN HÀNG</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showToast('Chính sách: Đổi mới trong 7 ngày nếu lỗi niêm phong nhà máy.', 'info')">Chính Sách Đổi Trả</a></li>
+            <li><a href="#" onclick="showToast('Chính sách: Miễn phí ship đơn từ 1.000.000₫ toàn quốc.', 'info')">Chính Sách Vận Chuyển</a></li>
+            <li><a href="#" onclick="showToast('Cam kết: Đền bù gấp 10 lần nếu phát hiện hàng giả!', 'gold')">Cam Kết Chính Hãng 100%</a></li>
+            <li><a href="#" onclick="showToast('Bảo mật: Thông tin khách hàng được mã hóa an toàn.', 'info')">Bảo Mật Thông Tin</a></li>
+            <li><a href="#" onclick="showToast('Hướng dẫn: Chấp nhận chuyển khoản, thẻ ATM, COD toàn quốc.', 'info')">Phương Thức Thanh Toán</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 4: Thông tin liên hệ & Đăng ký nhận tin -->
+        <div class="footer-column">
+          <h3>LIÊN HỆ &amp; ƯU ĐÃI</h3>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Tầng 3, Tòa Nhà TCG Arena, Quận 1, TP. Hồ Chí Minh</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>Hotline / Zalo: 0988.151.789 (8:30 - 22:00)</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>Email: contact@tcgarena.vn</span>
+          </div>
+
+          <!-- Form nhận mã giảm giá -->
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Nhập email nhận mã giảm 10%..." required>
+            <button type="submit" class="btn btn-primary btn-sm">Gửi</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bản quyền và ghi chú học tập môn Thiết kế Web -->
+      <div class="footer-bottom">
+        <div>
+          © 2024 - 2026 <strong>TCG ARENA</strong>. Dự án thực hành môn Thiết kế Web (HTML5, CSS3, Pure JavaScript).
+        </div>
+        <div>
+          Design &amp; Developed for TCG Card Collectors. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       7. PRODUCT DETAILS MODAL (XEM CHI TIẾT SẢN PHẨM)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="productModalBackdrop">
+    <div class="modal-dialog">
+      <!-- Nút đóng X -->
+      <button class="modal-close-btn" id="modalCloseBtn" title="Đóng cửa sổ">✕</button>
+
+      <div class="modal-content-grid">
+        <!-- Cột Trái: Ảnh lớn -->
+        <div class="modal-image-wrapper">
+          <img id="modalProductImage" src="Images/icons/box.svg" alt="Chi tiết sản phẩm">
+        </div>
+
+        <!-- Cột Phải: Thông tin chi tiết -->
+        <div class="modal-details">
+          <div class="modal-badge-row">
+            <span id="modalProductBadge" class="product-card-badge badge-hot">HOT</span>
+            <span id="modalProductStock" class="modal-spec-val stock-in">Còn hàng</span>
+          </div>
+
+          <h2 id="modalProductTitle" class="modal-title">Tên sản phẩm</h2>
+
+          <div class="modal-price-box">
+            <span id="modalProductPrice" class="modal-price">0 ₫</span>
+            <span id="modalProductOrigPrice" class="modal-original-price">0 ₫</span>
+          </div>
+
+          <p id="modalProductDesc" class="modal-desc">
+            Mô tả chi tiết sản phẩm...
+          </p>
+
+          <!-- Bảng thông số thẻ bài TCG -->
+          <div class="modal-specs-list">
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">Bộ mở rộng (Expansion):</span>
+              <span id="modalProductExpansion" class="modal-spec-val">Scarlet &amp; Violet</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">Độ hiếm / Quy cách:</span>
+              <span id="modalProductRarity" class="modal-spec-val">Special Illustration Rare</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">Tình trạng thẻ (Condition):</span>
+              <span id="modalProductCondition" class="modal-spec-val">Near Mint 100% Factory Sealed</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">Cam kết bảo hiểm:</span>
+              <span class="modal-spec-val" style="color: var(--status-in-stock);">Tặng kèm Toploader &amp; Bọc bài</span>
+            </div>
+          </div>
+
+          <!-- Nút chọn số lượng và thêm vào giỏ -->
+          <div class="modal-actions-row">
+            <div class="modal-qty-selector">
+              <button class="modal-qty-btn" onclick="adjustModalQuantity(-1)">−</button>
+              <input type="text" id="modalQtyInput" class="modal-qty-input" value="1" readonly>
+              <button class="modal-qty-btn" onclick="adjustModalQuantity(1)">+</button>
+            </div>
+            <button class="btn btn-primary btn-modal-add" onclick="addFromModalToCart()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              Thêm vào giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       8. SHOPPING CART DRAWER (GIỎ HÀNG BÊN PHẢI)
+       ======================================================================== -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+        Giỏ hàng của bạn
+      </h3>
+      <button class="cart-close-btn" id="cartCloseBtn" title="Đóng giỏ hàng">✕</button>
+    </div>
+
+    <!-- Thanh tiến độ Miễn phí vận chuyển -->
+    <div class="cart-shipping-notice">
+      <div class="shipping-progress-text" id="shippingProgressText">
+        Miễn phí giao hàng toàn quốc cho đơn từ <strong>1.000.000₫</strong>
+      </div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Danh sách sản phẩm trong giỏ -->
+    <div class="cart-items-list" id="cartItemsList">
+      <!-- Render động qua JavaScript -->
+    </div>
+
+    <!-- Tóm tắt chi phí & Nút thanh toán -->
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-summary-line">
+        <span>Tạm tính:</span>
+        <span id="cartSubtotal">0 ₫</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Phí vận chuyển:</span>
+        <span id="cartShipping">0 ₫</span>
+      </div>
+      <div class="cart-summary-total">
+        <span>Tổng thanh toán:</span>
+        <span class="total-amount" id="cartTotal">0 ₫</span>
+      </div>
+      <button class="btn btn-gold btn-checkout" onclick="proceedCheckout()">
+        Tiến hành đặt mua ngay
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MODAL XÁC NHẬN THANH TOÁN (CHECKOUT CONFIRMATION)
+       ======================================================================== -->
+  <div class="modal-backdrop" id="checkoutModalBackdrop">
+    <div class="modal-dialog" style="max-width: 500px;">
+      <button class="modal-close-btn" id="checkoutCloseBtn">✕</button>
+      <div class="checkout-modal-content">
+        <div class="checkout-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3>ĐẶT HÀNG THÀNH CÔNG!</h3>
+        <p>Cảm ơn bạn đã mua sắm tại <strong>TCG ARENA</strong>. Đơn hàng thẻ bài của bạn đã được ghi nhận vào hệ thống.</p>
+        
+        <div class="modal-specs-list" style="text-align: left; margin-bottom: 20px;">
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Mã đơn hàng:</span>
+            <span class="modal-spec-val" style="color: var(--accent-gold);">#TCG-88924</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Tổng số lượng thẻ:</span>
+            <span class="modal-spec-val" id="checkoutSummaryCount">0 sản phẩm</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Tổng thanh toán:</span>
+            <span class="modal-spec-val" id="checkoutSummaryTotal" style="color: var(--accent-gold);">0 ₫</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="modal-spec-label">Trạng thái:</span>
+            <span class="modal-spec-val" style="color: var(--status-in-stock);">Chờ đóng gói chuyên nghiệp</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="closeCheckoutModal()" style="width: 100%;">
+          Tiếp tục sưu tầm thẻ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nút Cuộn Lên Đầu Trang (Back to Top) -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="Lên đầu trang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="m18 15-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Container chứa các thông báo Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>
